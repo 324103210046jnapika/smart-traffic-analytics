@@ -1,0 +1,23 @@
+# Core Data Processing and Numerical Computation
+# (Compatible with Python 3.13; already verified in active environment)
+numpy>=2.0.0
+pandas>=2.2.0
+scipy>=1.14.0
+
+# Machine Learning & Modeling (CPU-friendly tabular regression & persistence)
+scikit-learn>=1.5.0
+joblib>=1.4.0
+
+# Visualization & Reporting
+matplotlib>=3.9.0
+plotly>=5.20.0
+
+# Interactive Dashboard (Planned for Phase 4)
+streamlit>=1.38.0
+
+# Configuration & Utilities
+PyYAML>=6.0.1
+requests>=2.31.0
+
+# Testing & Quality Assurance
+pytest>=8.2.0

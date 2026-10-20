@@ -1,0 +1,125 @@
+# ==============================================================================
+# Smart Traffic Forecasting and Congestion Analytics — Base Configuration
+# ==============================================================================
+project:
+  name: "smart-traffic-analytics"
+  version: "0.2.1-phase2-verified"
+  stage: "Phase 2 - Chronological Splitting and Causal Feature Engineering"
+  random_seed: 42
+
+environment:
+  target_os: "Windows 11"
+  compute_target: "CPU-first"
+  target_python: "3.13"
+
+directories:
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  models_dir: "artifacts/models"
+  metadata_dir: "artifacts/metadata"
+  figures_dir: "reports/figures"
+  metrics_dir: "reports/metrics"
+
+datasets:
+  dataset_a:
+    name: "Traffic Flow Forecasting (UCI ID 734)"
+    source_url: "https://archive.ics.uci.edu/dataset/734/traffic+flow+forecasting-1"
+    citation: "Liang Zhao, Olga Gkountouna, and Dieter Pfoser. ACM TSAS 2019. DOI: 10.1145/3339823"
+    license: "CC BY 4.0"
+    schema_verified: true
+    file_format: "MATLAB .mat (scipy.sparse CSC arrays in object cells)"
+    raw_files:
+      - "data/raw/dataset_a_uci_734/traffic_dataset.mat"
+      - "data/raw/dataset_a_uci_734/Traffic Flow Prediction Dataset.docx"
+    num_sensors: 36
+    total_timesteps: 2101
+    sampling_interval_minutes: 15
+    nominal_horizon_minutes: 15
+    verified_physical_horizon_minutes: 30 # Matches lag[9] at offset +2 (2 quarter-hours ahead)
+    date_range: "2017-01-02 00:00 to 2017-02-01 00:15 (weekdays only)"
+    features_per_sensor: 48
+    feature_breakdown:
+      historical_lags: 10 # cols 0-9
+      weekday_one_hot: 5  # cols 10-14 (Mon-Fri)
+      hour_one_hot: 24    # cols 15-38 (Hours 0-23)
+      lanes_count: 1      # col 39
+      road_direction: 4   # cols 40-43
+      road_id: 4          # cols 44-47
+    target_variable: "tra_Y"
+    target_description: "Normalized traffic flow/volume in [0, 1]"
+    spatial_adjacency_matrix: "tra_adj_mat (36x36 symmetric binary matrix)"
+    split_strategy: "Option A (Author Benchmark-Aligned)"
+    splits:
+      train_steps: 1000 # 47.6% (36,000 tabular rows)
+      val_steps: 261   # 12.4% (9,396 tabular rows)
+      test_steps: 840  # 40.0% (30,240 tabular rows, official academic benchmark)
+
+  dataset_b:
+    name: "Metro Interstate Traffic Volume (UCI ID 492)"
+    source_url: "https://archive.ics.uci.edu/dataset/492/metro+interstate+traffic+volume"
+    citation: "John Hogue (2019). Metro Interstate Traffic Volume. UCI Machine Learning Repository"
+    license: "CC BY 4.0"
+    schema_verified: true
+    file_format: "CSV"
+    raw_files:
+      - "data/raw/dataset_b_uci_492/Metro_Interstate_Traffic_Volume.csv"
+      - "data/raw/dataset_b_uci_492/Metro_Interstate_Traffic_Volume.csv.gz"
+    total_raw_rows: 48204
+    unique_timestamps: 40575
+    duplicate_timestamps: 7629
+    sampling_interval_hours: 1
+    forecast_horizon_hours: 1
+    date_range: "2012-10-02 09:00:00 to 2018-09-30 23:00:00"
+    target_column_name: "traffic_volume"
+    target_description: "Hourly westbound interstate traffic volume in [0, 7280] vehicles/hour"
+    causal_cleaning:
+      temp_outage_repair: "strictly causal forward-fill (.ffill())"
+      rain_glitch_cap: 55.63 # Verified non-anomalous maximum 1h rain
+    isolated_benchmark: true
+    splits:
+      train_ratio: 0.70 # 28,284 rows
+      val_ratio: 0.15   # 6,060 rows
+      test_ratio: 0.15  # 6,062 rows
+
+validation:
+  strategy: "chronological"
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+  keep_shared_timestamps_together: true
+  strict_temporal_split: true
+  fit_transforms_on_train_only: true
+
+feature_engineering:
+  max_lag_steps: 10
+  include_temporal_calendar_features: true
+  closed_window_only: true
+
+models:
+  persistence:
+    enabled: true
+    description: "Naive persistence baseline: y_hat(t+h) = y_latest(t)"
+  ridge_regression:
+    enabled: true
+    alpha: 1.0
+  random_forest:
+    enabled: true
+    n_estimators: 100
+    random_state: 42
+    n_jobs: -1
+  hist_gradient_boosting:
+    enabled: true
+    max_iter: 100
+    learning_rate: 0.1
+    random_state: 42
+
+evaluation:
+  metrics:
+    - "MAE"
+    - "RMSE"
+    - "R2"
+    - "baseline_improvement_pct"
+    - "inference_latency_ms"
+    - "peak_memory_mb"
+    - "model_size_mb"
+  per_sensor_breakdown: true

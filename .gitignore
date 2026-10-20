@@ -1,0 +1,110 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.cover
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment variables, credentials, and secrets
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.secret
+*credentials*.json
+*secret*.json
+
+# Data files (keep directory placeholders, ignore actual data dumps & arrays)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+*.csv
+*.parquet
+*.h5
+*.feather
+*.zip
+*.tar.gz
+*.npy
+*.npz
+*.mat
+
+# Model artifacts and serialized weights (keep directory placeholders)
+artifacts/models/*
+!artifacts/models/.gitkeep
+artifacts/metadata/*
+!artifacts/metadata/.gitkeep
+*.joblib
+*.pkl
+*.onnx
+
+# Media and large demo binaries (keep screenshots for documentation)
+artifacts/demo/*
+artifacts/demo_frames/*
+*.mp4
+*.avi
+*.mov
+
+# Allow documentation screenshots in artifacts/screenshots/
+!artifacts/screenshots/
+!artifacts/screenshots/*
+
+# Generated reports & figures (keep directory placeholders, whitelist summary JSON benchmarks)
+reports/figures/*
+!reports/figures/.gitkeep
+reports/metrics/*
+!reports/metrics/.gitkeep
+!reports/metrics/final_model_benchmark_summary.json
+!reports/metrics/*.json
+
+# Scratch and development probe scripts
+scratch/
+*.log
+
+# IDEs and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+__MACOSX/

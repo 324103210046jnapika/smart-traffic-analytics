@@ -1,0 +1,46 @@
+[
+  {
+    "model_slug": "persistence",
+    "model_name": "Persistence Baseline",
+    "mae": 587.68,
+    "rmse": 819.88,
+    "r2": 0.8259,
+    "baseline_improvement_pct": 0.0,
+    "fit_time_seconds": 0.0,
+    "inference_latency_ms_per_sample": 0.0,
+    "artifact_size_mb": 0.0
+  },
+  {
+    "model_slug": "ridge",
+    "model_name": "Ridge Regression",
+    "mae": 372.82,
+    "rmse": 507.99,
+    "r2": 0.9332,
+    "baseline_improvement_pct": 36.56,
+    "fit_time_seconds": 0.021,
+    "inference_latency_ms_per_sample": 0.0002,
+    "artifact_size_mb": 0.002
+  },
+  {
+    "model_slug": "random_forest",
+    "model_name": "Random Forest",
+    "mae": 155.44,
+    "rmse": 242.52,
+    "r2": 0.9848,
+    "baseline_improvement_pct": 73.55,
+    "fit_time_seconds": 3.396,
+    "inference_latency_ms_per_sample": 0.0068,
+    "artifact_size_mb": 60.061
+  },
+  {
+    "model_slug": "hist_gradient_boosting",
+    "model_name": "HistGradientBoosting",
+    "mae": 162.92,
+    "rmse": 249.66,
+    "r2": 0.9839,
+    "baseline_improvement_pct": 72.28,
+    "fit_time_seconds": 0.666,
+    "inference_latency_ms_per_sample": 0.0027,
+    "artifact_size_mb": 0.376
+  }
+]

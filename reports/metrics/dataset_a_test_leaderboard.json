@@ -1,0 +1,62 @@
+[
+  {
+    "model_slug": "persistence",
+    "model_name": "Persistence Baseline",
+    "test_mae": 0.0372,
+    "test_rmse": 0.0545,
+    "test_r2": 0.9288,
+    "baseline_improvement_pct": 0.0,
+    "val_mae": 0.0365,
+    "generalization_gap_mae": 0.0007,
+    "relative_degradation_pct": 2.0,
+    "inference_latency_ms_per_sample": 0.0,
+    "sensor_mae_median": 0.0411,
+    "sensor_mae_min": 0.0155,
+    "sensor_mae_max": 0.0533
+  },
+  {
+    "model_slug": "ridge",
+    "model_name": "Ridge Regression",
+    "test_mae": 0.0309,
+    "test_rmse": 0.0455,
+    "test_r2": 0.9505,
+    "baseline_improvement_pct": 17.03,
+    "val_mae": 0.0298,
+    "generalization_gap_mae": 0.0011,
+    "relative_degradation_pct": 3.65,
+    "inference_latency_ms_per_sample": 0.0001,
+    "sensor_mae_median": 0.0323,
+    "sensor_mae_min": 0.0183,
+    "sensor_mae_max": 0.0516
+  },
+  {
+    "model_slug": "random_forest",
+    "model_name": "Random Forest",
+    "test_mae": 0.0264,
+    "test_rmse": 0.0393,
+    "test_r2": 0.963,
+    "baseline_improvement_pct": 29.13,
+    "val_mae": 0.0246,
+    "generalization_gap_mae": 0.0018,
+    "relative_degradation_pct": 7.25,
+    "inference_latency_ms_per_sample": 0.0041,
+    "sensor_mae_median": 0.0277,
+    "sensor_mae_min": 0.011,
+    "sensor_mae_max": 0.0494
+  },
+  {
+    "model_slug": "hist_gradient_boosting",
+    "model_name": "HistGradientBoosting",
+    "test_mae": 0.0257,
+    "test_rmse": 0.0379,
+    "test_r2": 0.9657,
+    "baseline_improvement_pct": 30.96,
+    "val_mae": 0.0241,
+    "generalization_gap_mae": 0.0016,
+    "relative_degradation_pct": 6.65,
+    "inference_latency_ms_per_sample": 0.0529,
+    "sensor_mae_median": 0.0268,
+    "sensor_mae_min": 0.0125,
+    "sensor_mae_max": 0.0475
+  }
+]

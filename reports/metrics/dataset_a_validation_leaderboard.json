@@ -1,0 +1,58 @@
+[
+  {
+    "model_slug": "persistence",
+    "model_name": "Persistence Baseline",
+    "mae": 0.0365,
+    "rmse": 0.0558,
+    "r2": 0.9229,
+    "baseline_improvement_pct": 0.0,
+    "fit_time_seconds": 0.0,
+    "inference_latency_ms_per_sample": 0.0,
+    "artifact_size_mb": 0.0,
+    "sensor_mae_median": 0.0367,
+    "sensor_mae_min": 0.0143,
+    "sensor_mae_max": 0.0584
+  },
+  {
+    "model_slug": "ridge",
+    "model_name": "Ridge Regression",
+    "mae": 0.0298,
+    "rmse": 0.0466,
+    "r2": 0.9463,
+    "baseline_improvement_pct": 18.26,
+    "fit_time_seconds": 0.025,
+    "inference_latency_ms_per_sample": 0.0002,
+    "artifact_size_mb": 0.002,
+    "sensor_mae_median": 0.03,
+    "sensor_mae_min": 0.0162,
+    "sensor_mae_max": 0.057
+  },
+  {
+    "model_slug": "random_forest",
+    "model_name": "Random Forest",
+    "mae": 0.0246,
+    "rmse": 0.0395,
+    "r2": 0.9613,
+    "baseline_improvement_pct": 32.66,
+    "fit_time_seconds": 3.761,
+    "inference_latency_ms_per_sample": 0.0049,
+    "artifact_size_mb": 50.917,
+    "sensor_mae_median": 0.0239,
+    "sensor_mae_min": 0.0091,
+    "sensor_mae_max": 0.0585
+  },
+  {
+    "model_slug": "hist_gradient_boosting",
+    "model_name": "HistGradientBoosting",
+    "mae": 0.0241,
+    "rmse": 0.0383,
+    "r2": 0.9637,
+    "baseline_improvement_pct": 33.92,
+    "fit_time_seconds": 2.282,
+    "inference_latency_ms_per_sample": 0.0025,
+    "artifact_size_mb": 0.372,
+    "sensor_mae_median": 0.0236,
+    "sensor_mae_min": 0.0103,
+    "sensor_mae_max": 0.055
+  }
+]

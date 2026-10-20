@@ -1,0 +1,126 @@
+{
+  "timestamp": "2026-10-19T08:03:39Z",
+  "phase": "Phase 5: Official Test Evaluation",
+  "dataset_a": {
+    "domain": "Northern Virginia / Washington D.C. Capital Region (UCI 734)",
+    "forecast_horizon": "30 minutes ahead (t + 2 steps verified)",
+    "test_samples": 30240,
+    "test_leaderboard": [
+      {
+        "model_slug": "persistence",
+        "model_name": "Persistence Baseline",
+        "test_mae": 0.0372,
+        "test_rmse": 0.0545,
+        "test_r2": 0.9288,
+        "baseline_improvement_pct": 0.0,
+        "val_mae": 0.0365,
+        "generalization_gap_mae": 0.0007,
+        "relative_degradation_pct": 2.0,
+        "inference_latency_ms_per_sample": 0.0,
+        "sensor_mae_median": 0.0411,
+        "sensor_mae_min": 0.0155,
+        "sensor_mae_max": 0.0533
+      },
+      {
+        "model_slug": "ridge",
+        "model_name": "Ridge Regression",
+        "test_mae": 0.0309,
+        "test_rmse": 0.0455,
+        "test_r2": 0.9505,
+        "baseline_improvement_pct": 17.03,
+        "val_mae": 0.0298,
+        "generalization_gap_mae": 0.0011,
+        "relative_degradation_pct": 3.65,
+        "inference_latency_ms_per_sample": 0.0001,
+        "sensor_mae_median": 0.0323,
+        "sensor_mae_min": 0.0183,
+        "sensor_mae_max": 0.0516
+      },
+      {
+        "model_slug": "random_forest",
+        "model_name": "Random Forest",
+        "test_mae": 0.0264,
+        "test_rmse": 0.0393,
+        "test_r2": 0.963,
+        "baseline_improvement_pct": 29.13,
+        "val_mae": 0.0246,
+        "generalization_gap_mae": 0.0018,
+        "relative_degradation_pct": 7.25,
+        "inference_latency_ms_per_sample": 0.0041,
+        "sensor_mae_median": 0.0277,
+        "sensor_mae_min": 0.011,
+        "sensor_mae_max": 0.0494
+      },
+      {
+        "model_slug": "hist_gradient_boosting",
+        "model_name": "HistGradientBoosting",
+        "test_mae": 0.0257,
+        "test_rmse": 0.0379,
+        "test_r2": 0.9657,
+        "baseline_improvement_pct": 30.96,
+        "val_mae": 0.0241,
+        "generalization_gap_mae": 0.0016,
+        "relative_degradation_pct": 6.65,
+        "inference_latency_ms_per_sample": 0.0529,
+        "sensor_mae_median": 0.0268,
+        "sensor_mae_min": 0.0125,
+        "sensor_mae_max": 0.0475
+      }
+    ]
+  },
+  "dataset_b": {
+    "domain": "Interstate 94 Hourly Traffic Volume (UCI 492)",
+    "forecast_horizon": "1 hour ahead (calendar-verified)",
+    "test_samples": 5675,
+    "test_leaderboard": [
+      {
+        "model_slug": "persistence",
+        "model_name": "Persistence Baseline",
+        "test_mae": 592.36,
+        "test_rmse": 818.59,
+        "test_r2": 0.8298,
+        "baseline_improvement_pct": 0.0,
+        "val_mae": 587.68,
+        "generalization_gap_mae": 4.68,
+        "relative_degradation_pct": 0.8,
+        "inference_latency_ms_per_sample": 0.0
+      },
+      {
+        "model_slug": "ridge",
+        "model_name": "Ridge Regression",
+        "test_mae": 362.0,
+        "test_rmse": 486.05,
+        "test_r2": 0.94,
+        "baseline_improvement_pct": 38.89,
+        "val_mae": 372.82,
+        "generalization_gap_mae": -10.82,
+        "relative_degradation_pct": -2.9,
+        "inference_latency_ms_per_sample": 0.0003
+      },
+      {
+        "model_slug": "random_forest",
+        "model_name": "Random Forest",
+        "test_mae": 143.71,
+        "test_rmse": 221.65,
+        "test_r2": 0.9875,
+        "baseline_improvement_pct": 75.74,
+        "val_mae": 155.44,
+        "generalization_gap_mae": -11.73,
+        "relative_degradation_pct": -7.54,
+        "inference_latency_ms_per_sample": 0.0094
+      },
+      {
+        "model_slug": "hist_gradient_boosting",
+        "model_name": "HistGradientBoosting",
+        "test_mae": 149.74,
+        "test_rmse": 225.25,
+        "test_r2": 0.9871,
+        "baseline_improvement_pct": 74.72,
+        "val_mae": 162.92,
+        "generalization_gap_mae": -13.18,
+        "relative_degradation_pct": -8.09,
+        "inference_latency_ms_per_sample": 0.0057
+      }
+    ]
+  }
+}
